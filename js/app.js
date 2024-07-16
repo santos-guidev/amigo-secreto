@@ -5,12 +5,15 @@ let amigos = [];
 function adicionar() {
   const nomeAmigoInput = document.getElementById('nome-amigo');
   const nomeAmigo = nomeAmigoInput.value.trim();
-  if (nomeAmigo !== '') {
+
+  if (nomeAmigo === '') {
+    alert('Por favor, digite um nome válido.');
+  } else if (amigos.includes(nomeAmigo)) {
+    alert('Esse nome já foi adicionado.');
+  } else {
     amigos.push(nomeAmigo);
     nomeAmigoInput.value = '';
     atualizarListaAmigos();
-  } else {
-    alert('Por favor, digite um nome válido.');
   }
 }
 
